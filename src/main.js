@@ -7,6 +7,7 @@
 // Plugins
 import { registerPlugins } from "@/plugins";
 import router from "@/router/index.js";
+import "./axios";
 // Components
 import App from "./App.vue";
 

@@ -6,6 +6,7 @@
 
 // Composables
 import { createRouter, createWebHistory } from "vue-router";
+import Login from "@/views/Login.vue";
 import HomeView from "@/views/Home.vue";
 import UserNew from "@/views/UserNew.vue";
 import UserEdit from "@/views/UserEdit.vue";
@@ -15,6 +16,11 @@ import UserView from "@/views/UserView.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: "/login",
+      name: "Login",
+      component: Login,
+    },
     {
       path: "/",
       name: "Home",
