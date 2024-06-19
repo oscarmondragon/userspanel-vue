@@ -8,7 +8,7 @@
       <v-text-field v-model="confirmPassword" label="Confirm assword"></v-text-field>
 
 
-
+      <v-btn class="mt-2" to="/" block>Back</v-btn>
       <v-btn class="mt-2" type="submit" block>Submit</v-btn>
     </v-form>
   </v-sheet>

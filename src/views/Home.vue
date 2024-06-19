@@ -33,7 +33,14 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.email }}</td>
                 <td>{{ item.updated_at }}</td>
-                <td></td>
+                <td>
+                    <router-link :to="{ path: 'edit/' + item.id }" icon="mdi-eye">
+                        <v-icon icon="mdi-eye"></v-icon>
+                    </router-link>
+
+
+                    <v-btn icon="mdi-delete-outline" @click="deleteUser(item.id)"></v-btn>
+                </td>
 
             </tr>
         </tbody>
@@ -70,6 +77,19 @@ export default {
                 }
 
             );
+
+        },
+        async deleteUser(id) {
+            const response = await axios.delete("user/" + id).then(
+                res => {
+                    alert('Eliminado exitosamente');
+                    window.location.reload();
+                });
+        },
+        viewUser(id) {
+            console.log(id);
+            this.$router.push({ path: `/user/${id}` });
+
 
         }
     }
