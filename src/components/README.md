@@ -1,35 +1,41 @@
-# Components
+User Management App
+A modern frontend application built with Vue 3 and Vuetify, consuming a Laravel CRUD API  for user management.
 
-Vue template files in this folder are automatically imported.
+Features
+User CRUD operations (Create, Read, Update, Delete).
+Modern user interface using Vuetify components.
+Integration with a RESTful API for user management.
 
-## 🚀 Usage
+Technologies Used
+Vue 3
+Vuetify
+Axios (for HTTP requests)
 
-Importing is handled by [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components). This plugin automatically imports `.vue` files created in the `src/components` directory, and registers them as global components. This means that you can use any component in your application without having to manually import it.
 
-The following example assumes a component located at `src/components/MyComponent.vue`:
+Installation
+To run this project locally, follow these steps:
 
-```vue
-<template>
-  <div>
-    <MyComponent />
-  </div>
-</template>
+Clone the repository:
 
-<script lang="ts" setup>
-  //
-</script>
-```
+bash
+Copiar código
+git clone https://github.com/oscarmondragon/userspanel-vue.git
+cd userspanel-vue
+Install dependencies:
+npm install
 
-When your template is rendered, the component's import will automatically be inlined, which renders to this:
+Usage
+To start the development server, run:
 
-```vue
-<template>
-  <div>
-    <MyComponent />
-  </div>
-</template>
+npm run dev
+Then, open your browser and go to http://localhost:3000 to see the app in action.
 
-<script lang="ts" setup>
-  import MyComponent from '@/components/MyComponent.vue'
-</script>
-```
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Credits
+Vue.js: https://vuejs.org/
+Vuetify: https://vuetifyjs.com/
+Axios: https://axios-http.com/
