@@ -1,5 +1,6 @@
 <template>
     <h1>Home</h1>
+    <Nav></Nav>
     <v-col cols="auto">
         <label> New user </label>
         <v-btn to="/create" density="compact" icon="mdi-plus"></v-btn>
@@ -48,6 +49,7 @@
 
 </template>
 <script>
+import Nav from "../components/Nav.vue";
 import axios from 'axios';
 export default {
     data() {

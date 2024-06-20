@@ -5,10 +5,10 @@
 
       <v-text-field v-model="email" :rules="emailRules" label="Email"></v-text-field>
       <v-text-field v-model="password" :rules="passwordRules" label="Password"></v-text-field>
-      <v-text-field v-model="confirmPassword" label="Confirm assword"></v-text-field>
+      <v-text-field v-model="confirmPassword"  label="Confirm assword"></v-text-field>
 
 
-      <v-btn class="mt-2" to="/" block>Back</v-btn>
+      <v-btn class="mt-2" to="/home" block>Back</v-btn>
       <v-btn class="mt-2" type="submit" block>Submit</v-btn>
     </v-form>
   </v-sheet>
@@ -16,6 +16,7 @@
 
 <script>
 import axios from 'axios';
+import router from '@/router'; 
 
 export default {
   props: {
@@ -25,12 +26,14 @@ export default {
       const data = {
         name: this.name,
         email: this.email,
-        password: this.password
+        password: this.password,
       }
 
       const response = await axios.post("users", data).then(
         res => {
-          console.log(res)
+          console.log(res);
+      router.push('/home');
+
         }
       ).catch(
         err => {
@@ -58,19 +61,16 @@ export default {
       },
     ],
     emailRules: [
-      value => {
-        if (value?.length > 3) return true
-
-        return 'Email has to be a valid email'
-      },
+     v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
     passwordRules: [
       value => {
-        if (value?.length > 8) return true
+        if (value?.length >= 8) return true
 
-        return 'Password must be at least 3 characters.'
+        return 'Password must be at least 8 characters.'
       },
-    ],
+    ]
   }),
 }
 </script>

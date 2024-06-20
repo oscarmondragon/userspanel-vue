@@ -5,7 +5,7 @@
       <v-text-field v-model="name" :rules="nameRules" label="Name"></v-text-field>
 
       <v-text-field v-model="email" :rules="emailRules" label="Email"></v-text-field>
-      <v-btn class="mt-2" to="/" block>Back</v-btn>
+      <v-btn class="mt-2" to="/home" block>Back</v-btn>
       <v-btn class="mt-2" type="submit" block>Save changes</v-btn>
     </v-form>
   </v-sheet>
@@ -29,11 +29,8 @@ export default {
       },
     ],
     emailRules: [
-      value => {
-        if (value?.length > 3) return true
-
-        return 'Email has to be a valid email'
-      },
+    v => !!v || 'E-mail is required',
+    v => /.+@.+/.test(v) || 'E-mail must be valid',
     ],
     passwordRules: [
       value => {

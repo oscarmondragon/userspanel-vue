@@ -2,7 +2,6 @@
   <v-app>
 
     <v-main>
-      <Nav></Nav>
       <router-view>
 
       </router-view>

@@ -64,6 +64,8 @@
 <script>
 
 import axios from 'axios';
+import router from '@/router'; 
+
   export default {
     data: () => ({
       visible: false,
@@ -74,13 +76,22 @@ import axios from 'axios';
     methods: {
       async handleSubmit(){
             
-      const  response = await axios.post('login', {
-                email: this.email,
-                password: this.password
-            });
-            
-            localStorage.setItem('token', response.data.access_token);
-    
+        try {
+      const response = await axios.post('login', {
+        email: this.email,
+        password: this.password
+      });
+
+      // save token at local storage
+      localStorage.setItem('token', response.data.access_token);
+
+      
+      router.push('/home');
+    } catch (error) {
+      alert("User or password incorrect. Try again!")
+      console.error('Error sing in:', error);
+     
+    }
         }
 
   }
